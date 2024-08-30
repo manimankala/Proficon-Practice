@@ -17,23 +17,23 @@ public class DataBaseController {
     @Autowired
     private DataBaseServices services;
 
-    @PostMapping()
+    @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
     public DataBase createData(@RequestBody DataBase data){
         return services.addData(data);
     }
 
-    @GetMapping
+    @GetMapping("")
     public List<DataBase> findAllData(){
         return services.getAllData();
     }
 
-    @GetMapping("/Database")
+    @GetMapping(path="/byId")
     public DataBase findData(@PathVariable UUID id){
         return services.getDataById(id);
     }
 
-    @PutMapping
+    @PutMapping("")
     public DataBase setData(@RequestBody DataBase data){
         return services.updateData(data);
     }
